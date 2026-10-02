@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sari-Sari Store Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <h1>🏪 Pangging</h1>
+
+            <p> Sari-Sari Store</p>
+
+            <nav>
+                <button id="dashboardButton">🏠 Dashboard</button>
+                <button id="inventoryButton">📦 Inventory</button>
+                <button id="newSaleButton">🛒 New Sale</button>
+                <button id="utangButton">👥 Utang</button>
+                <button id="reportsButton">📊 Reports</button>
+            </nav>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main">
+
+    <!-- Dashboard -->
+
+    <section id="dashboardSection" class="section">
+
+        <header>
+            <h2>Dashboard</h2>
+            <p>Welcome to your store management system.</p>
+        </header>
+
+        <section class="cards">
+
+            <div class="card">
+                <span>💰</span>
+                <h3>Today's Sales</h3>
+                <strong id="todaySales">₱0.00</strong>
+            </div>
+
+            <div class="card">
+                <h3>Total Profit</h3>
+                <h2 id="totalProfit">₱0.00</h2>
+            </div>
+
+            <div class="card">
+                <span>📦</span>
+                <h3>Total Products</h3>
+                <strong id="totalProducts">0</strong>
+            </div>
+
+            <div class="card">
+                <span>⚠️</span>
+                <h3>Low Stock</h3>
+                <strong id="lowStock">0</strong>
+            </div>
+
+            <div class="card">
+                <span>💵</span>
+                <h3>Total Utang</h3>
+                <strong id="totalUtang">₱0.00</strong>
+            </div>
+
+            <div class="card">
+                <h3>Inventory Value</h3>
+                <h2 id="inventoryValue">₱0.00</h2>
+            </div>
+
+            <div class="card">
+                <h3>Expected Sales Value</h3>
+                <h2 id="expectedSales">₱0.00</h2>
+            </div>
+
+            <div class="card">
+                <h3>Potential Profit</h3>
+                <h2 id="potentialProfit">₱0.00</h2>
+            </div>
+
+            <div class="card">
+                <h3>Sales Transactions Today</h3>
+                <h2 id="todayTransactions">0</h2>
+            </div>
+
+        </section>
+
+        <div class="card">
+            <h3>Low Stock Products</h3>
+            <div id="lowStockList"></div>
+        </div>
+
+        <div class="card">
+            <h3>Low Stock Alert</h3>
+            <p id="lowStockAlert">No low stock products.</p>
+        </div>
+
+        <div class="card">
+            <h3>Data Backup</h3>
+            <button id="backupButton">Backup Data</button>
+            <input type="file" id="restoreFile" accept=".json">
+            <button id="restoreButton">Restore Data</button>
+        </div>
+
+    </section>
+
+
+    <!-- Inventory -->
+
+    <section id="inventorySection" class="page-section">
+
+        <div class="page-header">
+
+            <div>
+                <h2>📦 Inventory</h2>
+                <p>Manage your store products.</p>
+            </div>
+
+            <button id="addProductButton">
+                ＋ Add Product
+            </button>
+
+        </div>
+
+
+        <!-- Search -->
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchProduct"
+                placeholder="🔎 Search product..."
+            >
+
+            <select id="categoryFilter">
+                <option value="">All Categories</option>
+            </select>
+
+        </div>
+
+
+        <!-- Product Table -->
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Product</th>
+                        <th>Category</th>
+                        <th>Stock</th>
+                        <th>Buy Price</th>
+                        <th>Sell Price</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="productTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <h3>Stock History</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Product</th>
+                    <th>Action</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody id="stockHistory"></tbody>
+        </table>
+
+    </section>
+
+
+    <section class="section" id="salesSection">
+        <h2>New Sale</h2>
+
+        <div class="sale-box">
+            <label>Product</label>
+            <select id="saleProduct">
+                <option value="">Select Product</option>
+            </select>
+
+            <label>Quantity</label>
+            <input type="number" id="saleQuantity" min="1" value="1">
+
+            <button id="addToCartButton">Add to Cart</button>
+        </div>
+
+        <h3>Cart</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+
+            <tbody id="cartTable"></tbody>
+        </table>
+
+        <h3>Total: ₱<span id="saleTotal">0.00</span></h3>
+        <label>Payment Type</label>
+
+<select id="paymentType">
+    <option value="cash">Cash</option>
+    <option value="utang">Utang</option>
+</select>
+
+        <select id="utangCustomer">
+            <option value="">Select Customer</option>
+        </select>
+
+        <button id="completeSaleButton">Complete Sale</button>
+    </section>
+
+    <section class="section" id="utangSection">
+
+        <h2>Customer Utang</h2>
+
+        <input type="text" id="customerSearch" placeholder="Search customer">
+
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Customer name"
+        >
+
+        <button id="addCustomerButton">Add Customer</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Customer</th>
+                    <th>Balance</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="customerTable"></tbody>
+        </table>
+
+        <h3>Payment Records</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Customer</th>
+                    <th>Amount Paid</th>
+                    <th>Remaining</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="paymentHistory"></tbody>
+        </table>
+
+    </section>
+
+    <section class="section" id="reportsSection">
+
+        <h2>Sales History</h2>
+
+        <div class="card">
+            <h3>Total Sales</h3>
+            <h2 id="reportTotalSales">₱0.00</h2>
+        </div>
+
+        <div class="card">
+            <h3>Total Profit</h3>
+            <h2 id="reportTotalProfit">₱0.00</h2>
+        </div>
+
+        <label>Filter by Date</label>
+        <input type="date" id="salesDateFilter">
+        <button id="clearDateFilter">Clear Date</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Payment</th>
+                    <th>Total</th>
+                    <th>Profit</th>
+                </tr>
+            </thead>
+
+            <tbody id="salesHistory"></tbody>
+        </table>
+
+    </section>
+
+
+    <!-- Add Product Form -->
+
+    <div id="productModal" class="modal">
+
+        <div class="modal-content">
+
+            <h2>➕ Add Product</h2>
+
+            <label>Product Name</label>
+
+            <input
+                type="text"
+                id="productName"
+                placeholder="Example: Coke 1.5L"
+            >
+
+
+            <label>Category</label>
+
+            <input
+                type="text"
+                id="productCategory"
+                placeholder="Example: Drinks"
+            >
+
+
+            <label>Stock</label>
+
+            <input
+                type="number"
+                id="productStock"
+                min="0"
+                placeholder="Example: 20"
+            >
+
+
+            <label>Buying Price</label>
+
+            <input
+                type="number"
+                id="buyPrice"
+                min="0"
+                step="0.01"
+                placeholder="Example: 55"
+            >
+
+
+            <label>Selling Price</label>
+
+            <input
+                type="number"
+                id="sellPrice"
+                min="0"
+                step="0.01"
+                placeholder="Example: 70"
+            >
+
+
+            <label>Low Stock Limit</label>
+
+            <input
+                type="number"
+                id="lowStockLimit"
+                min="0"
+                value="5"
+            >
+
+
+            <div class="modal-buttons">
+
+                <button id="saveProduct">
+                    Save Product
+                </button>
+
+                <button id="cancelProduct">
+                    Cancel
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
