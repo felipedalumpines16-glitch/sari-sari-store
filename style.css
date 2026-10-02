@@ -598,3 +598,229 @@ th {
         box-sizing: border-box;
     }
 }
+@media (max-width: 600px) {
+    body {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    p,
+    label,
+    input,
+    select,
+    button {
+        font-size: 16px;
+    }
+
+    th,
+    td {
+        font-size: 15px;
+    }
+}
+@media (max-width: 600px) {
+    nav button {
+        min-height: 48px;
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+/* MOBILE RESPONSIVE DESIGN */
+@media (max-width: 600px) {
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 10px;
+        overflow-x: hidden;
+        font-size: 16px;
+    }
+
+    header {
+        width: 100%;
+        padding: 15px 10px;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 26px;
+        line-height: 1.3;
+    }
+
+    nav {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+
+    nav button {
+        width: 100%;
+        min-height: 48px;
+        margin: 0;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    main,
+    section {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    section {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 22px;
+        line-height: 1.3;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    p,
+    label {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    input,
+    select {
+        width: 100%;
+        max-width: 100%;
+        min-height: 44px;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    button {
+        max-width: 100%;
+        min-height: 44px;
+        padding: 10px 14px;
+        font-size: 16px;
+    }
+
+    .card {
+        width: 100%;
+        margin: 6px 0;
+        padding: 12px;
+    }
+
+    .sale-box {
+        width: 100%;
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    #saleProduct,
+    #saleQuantity,
+    #paymentType,
+    #utangCustomer {
+        width: 100%;
+        max-width: 100%;
+        min-height: 44px;
+        font-size: 16px;
+    }
+
+    #addToCartButton,
+    #completeSaleButton {
+        width: 100%;
+        min-height: 48px;
+        font-size: 16px;
+    }
+
+    #customerName,
+    #customerSearch {
+        width: 100%;
+        max-width: 100%;
+        min-height: 44px;
+        font-size: 16px;
+    }
+
+    #addCustomerButton {
+        width: 100%;
+        min-height: 48px;
+        font-size: 16px;
+    }
+
+    #salesDateFilter {
+        width: 100%;
+        min-height: 44px;
+        font-size: 16px;
+    }
+
+    #clearDateFilter {
+        width: 100%;
+        min-height: 48px;
+        font-size: 16px;
+    }
+
+    /* Tables can scroll horizontally */
+    table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        font-size: 15px;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        font-size: 15px;
+    }
+
+    /* Keep table action buttons usable */
+    #productTable button,
+    #customerTable button {
+        width: auto;
+        min-height: 40px;
+        display: inline-block;
+        margin: 2px;
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    /* Dashboard cards */
+    #dashboardSection {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    /* Reports */
+    #reportsSection .card {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    /* Prevent long text from breaking the layout */
+    h1,
+    h2,
+    h3,
+    p,
+    td,
+    th {
+        overflow-wrap: break-word;
+    }
+}
